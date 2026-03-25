@@ -15,4 +15,4 @@ class Unidade(db.Model):
     demandas: Mapped[List["Demanda"]] = relationship(back_populates="unidade")
 
     def __repr__(self) -> str:
-        return f"<Unidade {self.nome}>"
+        return f"<Unidade {self.id} - {self.nome}>"

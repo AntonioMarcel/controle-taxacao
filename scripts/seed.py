@@ -1,3 +1,8 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from app import create_app, db
 from app.models.unidade import Unidade
 from app.models.acao import Acao
@@ -122,9 +127,12 @@ with app.app_context():
         nomes_novos = [model(nome=nome) for nome in nomes_data if nome not in nomes_existentes] 
         db.session.add_all(nomes_novos)
 
-    seed_nomes(nomes_unidades, Unidade)
-    seed_nomes(nomes_acoes, Acao)
-    seed_nomes(nomes_taxadores, Taxador)
+
+    # seed_nomes(nomes_unidades, Unidade)
+    # seed_nomes(nomes_acoes, Acao)
+    # seed_nomes(nomes_taxadores, Taxador)
+
+
     db.session.commit()
 
 
