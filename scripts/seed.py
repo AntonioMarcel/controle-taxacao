@@ -13,29 +13,35 @@ app = create_app()
 
 nomes_unidades = [
     "ADC",
-    "CEPAI (ADC)",
+    "CEPAI (ADC)",  # checar com gestão: mesmo que "CEPAI"?
+    "CEPAI",        # checar com gestão: mesmo que "CEPAI (ADC)"?
     "CHB",
-    "HJXXIII",
-    "CMT (ADC)",
+    "CHPB",         # checar com gestão: unidade válida?
+    "CHE",
+    "CHU",
+    "CMT (ADC)",    # checar com gestão: mesmo que "CMT"?
+    "CMT",          # checar com gestão: mesmo que "CMT (ADC)"?
     "CSPD",
     "CSSFA",
     "CSSFE",
     "CSSI",
+    "HAC",
+    "HBDS",         # checar com gestão: unidade válida?
     "HCM",
     "HEM",
-    "HRAD (ADC)",
+    "HIJPII",
+    "HJK",
+    "HJXXIII",
+    "HMAL",
+    "HRAD (ADC)",   # checar com gestão: mesmo que "HRAD"?
+    "HRAD",         # checar com gestão: mesmo que "HRAD (ADC)"?
+    "HRBJA",
     "HRJP",
     "IRS",
-    "HAC",
-    "MGTX",
+    "MGT",          # checar com gestão: mesmo que "MGTX"?
+    "MGTX",         # checar com gestão: mesmo que "MGT"?
     "MOV",
-    "HJK",
-    "HIJPII",
-    "HMAL",
-    "CHU",
-    "CHE",
     "SEPLAG",
-    "HRBJA"
 ]
 
 nomes_acoes = [
@@ -45,62 +51,67 @@ nomes_acoes = [
     "AD.NOT/FINAL DE SEMANA",
     "PMC",
     "ADICIONAL TRINTENÁRIO",
+    "ADICIONAL DESEMPENHO",
     "AJUDA DE CUSTO",
     "ALTERAÇÃO DADOS CADASTRAIS",
+    "ALTERAÇÃO DE DADOS BANCÁRIOS",
+    "AFASTAMENTO PARA ESTUDOS",
+    "ACERTOS DÉCIMO TERCEIRO",
+    "ATUALIZAÇÃO PENSÃO",
     "AUXÍLIO/VALE TRANSPORTE",
+    "ASSUNTOS PREVIDENCIÁRIOS",
+    "APOSENTADORIA - EXCLUSÃO DE VERBAS",
     "CORREÇÃO IMPLANTAÇÃO",
+    "CONTRACHEQUE",
+    "COORDENAÇÃO CCPT",
     "DESLIGAMENTO",
+    "DESLIGAMENTO DE NOMEADOS",
+    "DOAÇÃO DE SANGUE",
     "EXONERAÇÃO",
     "QUINQUÊNIO/TRINTENÁRIO/PROMOÇÃO",
     "FGH",
+    "FGTS - JUDICIAL",
     "FALTAS - DESCONTOS/RESTITUIÇÕES",
     "FÉRIAS PRÊMIO (INDENIZAÇÃO)",
     "FÉRIAS REGULAMENTARES (ACERTO)",
     "FREQUÊNCIA",
-    "FGTS - JUDICIAL",
+    "FREQUÊNCIA MENSAL",
     "GIEFS",
     "GRS",
     "HORA EXTRA",
+    "HORA EXTRA MENSAL",
     "IMPLANTAÇÃO",
     "INÍCIO DE EXERCÍCIO",
     "INSS",
     "IPSEMG",
     "ISENÇÃO DE IR",
+    "INCLUSÃO RESIDENTES",
+    "INCLUSÃO ESTAGIÁRIOS",
+    "INDENIZADO",
     "LICENÇA MATERNIDADE CONTRATO",
+    "LIBERAÇÃO DE VERBAS RETIDAS",
     "MAPA JUDICIAL",
     "MOV. INTERNA",
     "NOMEAÇÃO DAI",
+    "OPE",
+    "ORIENTAÇÕES",
     "PAD",
+    "PAGAMENTO DE DAE",
+    "PAGAMENTO REJEITADO",
     "PENSÃO ALIMENTO",
     "PENSÃO BOLSISTA",
+    "PISO ENFERMAGEM",
     "POSSE",
     "REMOÇÃO",
     "RENOVAÇÃO CONTRATO",
+    "RENOVAÇÃO CONTRATO GESTANTE",
     "RENOVAÇÃO RESIDENTES",
     "RESUMO FUNCIONAL",
     "RETENÇÃO",
+    "SISAP - SOLICITAÇÕES E SENHAS",
     "VENCIMENTOS DEIXADOS",
     "VERBAS RETIDAS",
     "VINCULADO",
-    "DESLIGAMENTO DE NOMEADOS",
-    "OPE",
-    "CONTRACHEQUE",
-    "PISO ENFERMAGEM",
-    "SISAP - SOLICITAÇÕES E SENHAS",
-    "ASSUNTOS PREVIDENCIÁRIOS",
-    "COORDENAÇÃO CCPT",
-    "PAGAMENTO DE DAE",
-    "APOSENTADORIA - EXCLUSÃO DE VERBAS",
-    "AFASTAMENTO PARA ESTUDOS",
-    "INCLUSÃO RESIDENTES",
-    "ORIENTAÇÕES",
-    "ACERTOS DÉCIMO TERCEIRO",
-    "DOAÇÃO DE SANGUE",
-    "ADICIONAL DESEMPENHO",
-    "INCLUSÃO ESTAGIÁRIOS",
-    "INDENIZADO",
-    "RENOVAÇÃO CONTRATO GESTANTE",
-    "ATUALIZAÇÃO PENSÃO"
 ]
 
 nomes_taxadores = [
@@ -128,9 +139,9 @@ with app.app_context():
         db.session.add_all(nomes_novos)
 
 
-    # seed_nomes(nomes_unidades, Unidade)
-    # seed_nomes(nomes_acoes, Acao)
-    # seed_nomes(nomes_taxadores, Taxador)
+    seed_nomes(nomes_unidades, Unidade)
+    seed_nomes(nomes_acoes, Acao)
+    seed_nomes(nomes_taxadores, Taxador)
 
 
     db.session.commit()

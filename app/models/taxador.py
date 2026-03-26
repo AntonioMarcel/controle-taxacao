@@ -15,4 +15,4 @@ class Taxador(db.Model):
     demandas: Mapped[List["Demanda"]] = relationship(back_populates="taxador")
 
     def __repr__(self) -> str:
-        return f"<Taxador {self.nome}>"
+        return f"<Taxador {self.id} - {self.nome}>"

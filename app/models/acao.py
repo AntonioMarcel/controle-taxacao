@@ -15,4 +15,4 @@ class Acao(db.Model):
     demandas: Mapped[List["Demanda"]] = relationship(back_populates="acao")
 
     def __repr__(self) -> str:
-        return f"<Acao {self.nome}>"
+        return f"<Acao {self.id} - {self.nome}>"
